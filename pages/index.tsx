@@ -24,7 +24,7 @@ const Home: NextPage = () => {
 
     if (!inputRef.current?.value) {
       setIsLoading(false);
-      setFormError("Please enter a URL");
+      setFormError("Please enter a URL to shorten.");
       return;
     }
 
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         if (!linksHistory) {
           setLinkHistory([data.data]);
         } else {
-          setLinkHistory(linksHistory.concat(data.data));
+          setLinkHistory([data.data, ...linksHistory]);
         }
         if (inputRef.current?.value) inputRef.current.value = "";
         setIsLoading(false);
@@ -55,12 +55,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-9/12 m-auto mt-28">
+      <main className="w-8/12 m-auto mt-28">
         {/* <LinkToGithub /> */}
 
         <div className="flex flex-col">
           <div className="flex flex-col mb-10 items-center space-y-8">
-            <h1 className="text-9xl text-gray-200">Owly</h1>
+            <h1 className="text-9xl font-bold text-gray-200">
+              Owly<small className="text-2xl">.ga</small>
+            </h1>
             <p className="text-sm">Memorable Anonymous ShortLinks Generator</p>
           </div>
           <form
@@ -72,7 +74,7 @@ const Home: NextPage = () => {
               placeholder="Enter a URL to shorten"
               type="text"
               id="large-input"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
 
             {formError && (
@@ -85,15 +87,36 @@ const Home: NextPage = () => {
               <button
                 disabled={isLoading}
                 type="submit"
-                className="text-white disabled:text-gray-300 w-1/3 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                className="inline-flex justify-center text-white disabled:text-gray-300 w-1/3 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
+                {isLoading && (
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                )}
                 Shorten
               </button>
             </div>
           </form>
           {formResponse && <FormResult {...formResponse} />}
 
-          {/* History Component */}
           {linksHistory && <GeneratedLinksHistory links={linksHistory} />}
         </div>
       </main>
