@@ -51,7 +51,7 @@
     "u": ["used", "used", "used", "used", "used"],
     "v": ["visited", "visited", "visited", "visited", "visited"],
     "w": ["woke", "woke", "woke", "woke", "woke"],
-    "x": ["x-rayed", "x-rayed", "x-rayed", "x-rayed", "x-rayed"],
+    "x": ["xerox", "xerox", "xerox", "xerox", "xerox"],
     "y": ["yelled", "yelled", "yelled", "yelled", "yelled"],
     "z": ["zapped", "zapped", "zapped", "zapped", "zapped"]
   },
@@ -79,7 +79,7 @@
     "u": ["ugly", "ugly", "ugly", "ugly", "ugly"],
     "v": ["vast", "vast", "vast", "vast", "vast"],
     "w": ["warm", "warm", "warm", "warm", "warm"],
-    "x": ["x-rayed", "x-rayed", "x-rayed", "x-rayed", "x-rayed"],
+    "x": ["xenial", "xenial", "xenial", "xenial", "xenial"],
     "y": ["young", "young", "young", "young", "young"],
     "z": ["zany", "zany", "zany", "zany", "zany"]
   }

@@ -1,11 +1,6 @@
 import { Db } from "mongodb";
-import validUrl from "valid-url";
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  generateRandomSentenceFromAlias,
-  generateUniqAlias,
-  isAliasExists,
-} from "../../lib/aliasHelpers";
+import { generateUniqAlias, getAliasFromDb } from "../../lib/aliasHelpers";
 import { withMongo } from "../../lib/mongodb";
 
 type ResponseData = {
@@ -41,16 +36,24 @@ export default async function handler(
   }
 
   // Make sure URL is valid
-  if (!validUrl.isUri(url)) {
+  if (!isValidUrl(url)) {
     return res.status(400).json({
       statusCode: 400,
-      message: "URL is invalid",
+      message: "URL is Invalid",
     });
   }
 
-  // Check if alias is provided and if yes then make sure it don't already exists in database
+  // Validation Checks for Alias
   if (alias) {
-    const aliasExists = await isAliasExists(alias);
+    if (alias.length < 7) {
+      return res.status(400).json({
+        statusCode: 400,
+        message: "Alias must be atleast 7 characters long",
+      });
+    }
+
+    const aliasExists = await getAliasFromDb(alias);
+
     if (aliasExists) {
       return res.status(400).json({
         statusCode: 400,
@@ -65,7 +68,7 @@ export default async function handler(
     const collection = db.collection("shortLinks");
     const created = await collection.insertOne({
       destination: url,
-      alias: alias,
+      alias: alias.toLowerCase(),
       created: new Date().toISOString(),
       updated: new Date().toISOString(),
     });
@@ -86,4 +89,10 @@ export default async function handler(
       statusCode: 500,
     });
   }
+}
+
+function isValidUrl(url: string) {
+  const urlRegex =
+    /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+  return urlRegex.test(url);
 }
