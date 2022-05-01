@@ -18,6 +18,7 @@ function GeneratedLinksHistory({ links }: { links: FormResponse[] }) {
               <a
                 href={window.location.origin + "/" + link.alias}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block text-orange-400 hover:text-pink-400 cursor-pointer"
               >
                 {window.location.origin + "/" + link.alias}
