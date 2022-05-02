@@ -1,6 +1,6 @@
 # [Owly](https://owly.ga)
 
-![image](https://user-images.githubusercontent.com/3089863/166166889-d9b9fc42-4c19-4777-8458-34468d31c097.png)
+![image](https://user-images.githubusercontent.com/3089863/166172425-7ac5bf00-a42b-453a-98d6-4305e32146e9.png)
 
 Owly is a open source anonymous URL shortner with:
 1. No Tracking, just redirection.
