@@ -24,6 +24,7 @@ With Owly, generated shorturl will have following characteristics:
 4. Start with `npm run dev`
 
 ## TODO
+- [ ] Update words.json file.
 - [ ] Add SEO & Meta
 - [ ] Clear History Button
 
