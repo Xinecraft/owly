@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ClassAttributes, LegacyRef, useRef, useState } from "react";
 import FormResult from "../components/FormResult";
 import GeneratedLinksHistory from "../components/GeneratedLinksHistory";
+import LinkToGithub from "../components/LinkToGithub";
 import useStickyState from "../hooks/useStickyState";
 import { FormResponse } from "../lib/interfaces";
 
@@ -55,12 +56,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-8/12 m-auto mt-28">
-        {/* <LinkToGithub /> */}
+      <main className="w-8/12 m-auto mt-28 dark">
+        <LinkToGithub />
+        
 
         <div className="flex flex-col">
-          <div className="flex flex-col mb-10 items-center space-y-8">
-            <h1 className="text-9xl font-bold text-gray-200">
+          <div className="flex flex-col mb-5 items-center space-y-4">
+            <h1 className="text-9xl py-5 font-bold text-gray-200 text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-orange-400">
               Owly<small className="text-2xl">.ga</small>
             </h1>
             <p className="text-sm">Memorable Anonymous ShortLinks Generator</p>
@@ -74,7 +76,7 @@ const Home: NextPage = () => {
               placeholder="Enter a URL to shorten"
               type="text"
               id="large-input"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-orange-500 focus:orange-blue-500 dark:bg-gray-900 dark:border-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
             />
 
             {formError && (

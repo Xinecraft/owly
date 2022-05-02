@@ -70,7 +70,6 @@ export default async function handler(
       destination: url,
       alias: alias.toLowerCase(),
       created: new Date().toISOString(),
-      updated: new Date().toISOString(),
     });
 
     return created;
