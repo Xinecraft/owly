@@ -12,7 +12,7 @@ With Owly, generated shorturl will have following characteristics:
 1. Case insensitive, No more confusion of upper and lowercase.
 2. Can open with Words. Eg: `owly.ga/ci4dsio` can also be opened with `owly.ga/car-is-4-down-street-in-out` , `owly.ga/cat-is-44-damn-inside-out` or any other such combinations.
 
-## Stack:
+## Stack
 1. NextJS for API & Frontend
 2. MongoDB for Store
 3. Deployed on Vercel
@@ -24,7 +24,8 @@ With Owly, generated shorturl will have following characteristics:
 4. Start with `npm run dev`
 
 ## TODO
-[ ] Clear History
+- [ ] Add SEO & Meta
+- [ ] Clear History Button
 
 ## Deployed URL:
 1. owly.ga
