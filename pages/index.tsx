@@ -31,7 +31,10 @@ const Home: NextPage = () => {
     }
 
     axios
-      .post("/api/url", { url: inputRef.current.value, pod: podInputRef.current?.value })
+      .post("/api/url", {
+        url: inputRef.current.value,
+        pod: podInputRef.current?.value,
+      })
       .then((data) => {
         setFormResponse(data.data);
         if (!linksHistory) {
@@ -64,7 +67,7 @@ const Home: NextPage = () => {
         />
         <meta name="keywords" content="owly,url,shortner,shortlink,generator" />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Xinecraft" />
 
@@ -85,7 +88,12 @@ const Home: NextPage = () => {
             onSubmit={handleSubmit}
             className="form flex flex-col space-y-4"
           >
-            <input type="text" style={{display: 'none'}} name="url" ref={podInputRef} />
+            <input
+              type="text"
+              style={{ display: "none" }}
+              name="url"
+              ref={podInputRef}
+            />
             <input
               ref={inputRef}
               placeholder="Enter a URL to shorten"
