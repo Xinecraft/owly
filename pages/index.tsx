@@ -11,6 +11,7 @@ import { FormResponse } from "../lib/interfaces";
 
 const Home: NextPage = () => {
   let inputRef = useRef<HTMLInputElement>(null);
+  let podInputRef = useRef<HTMLInputElement>(null);
   let [isLoading, setIsLoading] = useState<boolean>(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [formResponse, setFormResponse] = useState<FormResponse | null>(null);
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
     }
 
     axios
-      .post("/api/url", { url: inputRef.current.value })
+      .post("/api/url", { url: inputRef.current.value, pod: podInputRef.current?.value })
       .then((data) => {
         setFormResponse(data.data);
         if (!linksHistory) {
@@ -53,12 +54,25 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Owly - Memorable Anonymous ShortLinks Generator</title>
+        <meta
+          name="title"
+          content="Owly - Memorable Anonymous ShortLinks Generator"
+        />
+        <meta
+          name="description"
+          content="Free Anonymous URL Shortner with memorable keywords. ✓ Check it out!"
+        />
+        <meta name="keywords" content="owly,url,shortner,shortlink,generator" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Xinecraft" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="w-8/12 m-auto mt-28 dark">
         <LinkToGithub />
-        
 
         <div className="flex flex-col">
           <div className="flex flex-col mb-5 items-center space-y-4">
@@ -71,6 +85,7 @@ const Home: NextPage = () => {
             onSubmit={handleSubmit}
             className="form flex flex-col space-y-4"
           >
+            <input type="text" style={{display: 'none'}} name="url" ref={podInputRef} />
             <input
               ref={inputRef}
               placeholder="Enter a URL to shorten"

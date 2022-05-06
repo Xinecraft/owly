@@ -25,8 +25,10 @@ With Owly, generated shorturl will have following characteristics:
 
 ## TODO
 - [ ] Update words.json file.
-- [ ] Add SEO & Meta
+- [x] Add SEO & Meta
 - [ ] Clear History Button
+- [ ] Option to customize links.
+- [x] Honeypot and Hidden Captcha if needed
 
 ## Deployed URL:
 1. owly.ga

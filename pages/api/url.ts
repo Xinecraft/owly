@@ -26,7 +26,15 @@ export default async function handler(
   }
 
   // Get the form body
-  let { url, alias } = req.body;
+  let { url, alias, pod } = req.body;
+
+  // HoneyPod trap
+  if (pod) {
+    return res.status(500).json({
+      statusCode: 500,
+      message: "I fked up!",
+    });
+  }
 
   if (!url) {
     return res.status(400).json({
