@@ -1,8 +1,7 @@
 import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { ClassAttributes, LegacyRef, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import FormResult from "../components/FormResult";
 import GeneratedLinksHistory from "../components/GeneratedLinksHistory";
 import LinkToGithub from "../components/LinkToGithub";
@@ -17,6 +16,10 @@ const Home: NextPage = () => {
   const [formResponse, setFormResponse] = useState<FormResponse | null>(null);
 
   const [linksHistory, setLinkHistory] = useStickyState(null, "links");
+
+  function clearHistory() {
+    setLinkHistory(null);
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     setFormError(null);
@@ -142,7 +145,12 @@ const Home: NextPage = () => {
           </form>
           {formResponse && <FormResult {...formResponse} />}
 
-          {linksHistory && <GeneratedLinksHistory links={linksHistory} />}
+          {linksHistory && (
+            <GeneratedLinksHistory
+              links={linksHistory}
+              clearHistory={clearHistory}
+            />
+          )}
         </div>
       </main>
     </>
