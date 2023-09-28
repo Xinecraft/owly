@@ -83,7 +83,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col">
           <div className="flex flex-col mb-5 items-center space-y-4">
             <h1 className="text-9xl py-5 font-bold text-gray-200 text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-orange-400">
-              Owly<small className="text-2xl">.ga</small>
+              Owly<small className="text-2xl">.lol</small>
             </h1>
             <p className="text-sm">Memorable Anonymous ShortLinks Generator</p>
           </div>

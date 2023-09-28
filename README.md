@@ -1,4 +1,4 @@
-# [Owly](https://owly.ga)
+# [Owly](https://owly.lol)
 
 ![image](https://user-images.githubusercontent.com/3089863/166172425-7ac5bf00-a42b-453a-98d6-4305e32146e9.png)
 
@@ -10,7 +10,7 @@ Owly is a open source anonymous URL shortner with:
 ## ShortUrl Features
 With Owly, generated shorturl will have following characteristics:
 1. Case insensitive, No more confusion of upper and lowercase.
-2. Can open with Words. Eg: `owly.ga/ci4dsio` can also be opened with `owly.ga/car-is-4-down-street-in-out` , `owly.ga/cat-is-44-damn-inside-out` or any other such combinations.
+2. Can open with Words. Eg: `owly.lol/ci4dsio` can also be opened with `owly.lol/car-is-4-down-street-in-out` , `owly.lol/cat-is-44-damn-inside-out` or any other such combinations.
 
 ## Stack
 1. NextJS for API & Frontend
@@ -31,7 +31,7 @@ With Owly, generated shorturl will have following characteristics:
 - [x] Honeypot and Hidden Captcha if needed
 
 ## Deployed URL:
-1. owly.ga
+1. owly.lol
 1. owly-alpha.vercel.app
 
 ## License
